@@ -4,7 +4,7 @@ hw:
 - Author: bramb
 - Date: 2019-01-23
 =#
-const Node = String
+const Node = Any
 
 struct HyperEdge
     label::String
@@ -53,7 +53,7 @@ end
 
 function to_dot(hg::HyperGraph)
     hyperedges = ""
-    node_vars = Dict{String,String}()
+    node_vars = Dict{Node,String}()
     node_set = Set()
     for (i,he) in enumerate(hg)
         for s in he.source
